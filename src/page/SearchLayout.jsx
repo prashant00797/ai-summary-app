@@ -30,9 +30,12 @@ const SearchLayout = () => {
   const handleSummaryGeneration = async () => {
     try {
       setIsLoading(true);
+
+      //TODO - integrate API call here and remove mock data
       // const aiResponse = await geminiRequest(inputDataForSummary);
       // console.log("API response:", aiResponse);
       setResult(aiSummary);
+      console.log(inputDataForSummary);
     } catch {
       setError(true);
     } finally {
