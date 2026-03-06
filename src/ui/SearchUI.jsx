@@ -1,15 +1,23 @@
-const SearchUI = () => {
+const SearchUI = ({
+  handleReset,
+  handleSummaryGeneration,
+  onChange,
+  inputDataForSummary,
+  isLoading,
+}) => {
   return (
     <div className="flex flex-col">
       <div id="textarea-wrapper" className="relative">
         <textarea
-          name="rawText"
-          id="rawText"
+          name="text"
+          id="text"
           className="textarea h-45 [scrollbar-width:none] pr-15"
-          maxLength={5000}
+          value={inputDataForSummary.text}
+          maxLength={1000}
+          onChange={(e) => onChange(e)}
         ></textarea>
         <div className="absolute bottom-2 right-2  ">
-          <span className="text-text-secondary z-10">0/1000</span>
+          <span className="text-text-secondary z-10">{`${inputDataForSummary.text.length}/1000`}</span>
         </div>
       </div>
 
@@ -24,8 +32,9 @@ const SearchUI = () => {
           <select
             name="mode"
             id="mode"
-            defaultValue="keyInsight"
+            value={inputDataForSummary.mode}
             className="select-input "
+            onChange={(e) => onChange(e)}
           >
             <option value="summary">Summary</option>
             <option value="keyInsight">Key Insights</option>
@@ -42,8 +51,9 @@ const SearchUI = () => {
           <select
             name="length"
             id="length"
-            defaultValue="medium"
+            value={inputDataForSummary.length}
             className="select-input "
+            onChange={(e) => onChange(e)}
           >
             <option value="short">Short</option>
             <option value="medium">Medium</option>
@@ -51,7 +61,20 @@ const SearchUI = () => {
           </select>
         </div>
         <div className="ml-auto mt-3.5 md:mt-0" id="main-button">
-          <button className="primary-btn">Summarize</button>
+          <button
+            disabled={inputDataForSummary.text.trim() === "" || isLoading}
+            className="primary-btn disabled:cursor-not-allowed disabled:bg-gray-400 disabled:border-gray-400"
+            onClick={(e) => handleSummaryGeneration(e)}
+          >
+            Summarize
+          </button>
+          <button
+            disabled={inputDataForSummary.text.trim() === "" || isLoading}
+            className="ml-2 primary-btn bg-red-500 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:border-gray-400"
+            onClick={handleReset}
+          >
+            Reset
+          </button>
         </div>
       </div>
     </div>
