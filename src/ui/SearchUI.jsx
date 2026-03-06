@@ -21,11 +21,14 @@ const SearchUI = () => {
           <label htmlFor="mode" className="pl-1 md:pl-0 text-xs md:text-[16px]">
             Mode:
           </label>
-          <select name="mode" id="mode" className="select-input ">
+          <select
+            name="mode"
+            id="mode"
+            defaultValue="keyInsight"
+            className="select-input "
+          >
             <option value="summary">Summary</option>
-            <option value="keyInsight" selected>
-              Key Insights
-            </option>
+            <option value="keyInsight">Key Insights</option>
             <option value="bullet">Bullet Points</option>
           </select>
         </div>
@@ -36,11 +39,14 @@ const SearchUI = () => {
           >
             Length:
           </label>
-          <select name="length" id="length" className="select-input ">
+          <select
+            name="length"
+            id="length"
+            defaultValue="medium"
+            className="select-input "
+          >
             <option value="short">Short</option>
-            <option value="medium" selected>
-              Medium
-            </option>
+            <option value="medium">Medium</option>
             <option value="long">Long</option>
           </select>
         </div>

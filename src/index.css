@@ -51,7 +51,7 @@
   .primary-btn {
     background: var(--color-primary);
     border-radius: var(--radius-button);
-    @apply text-white px-5 py-2.5 font-medium transition;
+    @apply text-white px-5 py-2.5 font-medium md:cursor-pointer transition;
   }
 
   .primary-btn:hover {

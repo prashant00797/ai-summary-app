@@ -1,7 +1,8 @@
 import HeaderUI from "../ui/HeaderUI";
 import { GeminiLogo, HeaderLogo } from "../utility/icons";
 import SearchLayout from "./SearchLayout";
-
+import SummaryLayout from "./SummaryLayout";
+const isActivated = true;
 const BaseLayout = () => {
   return (
     <div className="app-container">
@@ -10,6 +11,7 @@ const BaseLayout = () => {
       </div>
       <HeaderUI />
       <SearchLayout />
+      {isActivated && <SummaryLayout />}
     </div>
   );
 };
