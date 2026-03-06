@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-bg: #f5f7fb;
+  --color-card: #ffffff;
+  --color-border: #e5e7eb;
+
+  --color-text-primary: #111827;
+  --color-text-secondary: #6b7280;
+
+  --color-tag-bg: #dbeafe;
+  --color-tag-text: #1d4ed8;
+
+  /* Radius */
+  --radius-card: 12px;
+  --radius-button: 10px;
+
+  /* Shadow */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06);
+
+  /* Font */
+  --font-primary: Inter, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    background: var(--color-bg);
+    color: var(--color-text-primary);
+    font-family: var(--font-primary);
+  }
+}
+
+@layer components {
+  .app-container {
+    @apply max-w-3xl mx-auto px-4 py-10;
+  }
+
+  .card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    @apply p-6;
+  }
+
+  .primary-btn {
+    background: var(--color-primary);
+    border-radius: var(--radius-button);
+    @apply text-white px-5 py-2.5 font-medium transition;
+  }
+
+  .primary-btn:hover {
+    background: var(--color-primary-hover);
+  }
+
+  .textarea {
+    border: 1px solid var(--color-border);
+    @apply w-full rounded-lg p-4 text-sm resize-none focus:outline-none;
+  }
+
+  .select-input {
+    border: 1px solid var(--color-border);
+    @apply rounded-lg px-3 py-2 text-sm bg-white;
+  }
+
+  .tag {
+    background: var(--color-tag-bg);
+    color: var(--color-tag-text);
+    @apply px-3 py-1 rounded-md text-xs font-medium;
+  }
+}
