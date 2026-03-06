@@ -1,11 +1,11 @@
-function App() {
+import BaseLayout from "./page/BaseLayout";
+
+const App = () => {
   return (
     <>
-      <div className="app-container">
-        <h1>Insight AI</h1>
-      </div>
+      <BaseLayout />
     </>
   );
-}
+};
 
 export default App;
