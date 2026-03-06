@@ -1,5 +1,6 @@
 import HeaderUI from "../ui/HeaderUI";
 import { GeminiLogo, HeaderLogo } from "../utility/icons";
+import SearchLayout from "./SearchLayout";
 
 const BaseLayout = () => {
   return (
@@ -8,6 +9,7 @@ const BaseLayout = () => {
         <GeminiLogo className="w-15 md:w-30  h-auto" />
       </div>
       <HeaderUI />
+      <SearchLayout />
     </div>
   );
 };
