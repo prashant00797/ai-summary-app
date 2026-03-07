@@ -1,9 +1,6 @@
 import { GEMINI_KEY, GEMINI_URL } from "../constants/url";
 
 export const geminiRequest = async ({ length, mode, text }) => {
-  console.log(length, "length");
-  console.log(mode, "mode");
-  console.log(text, "text");
   const response = await fetch(`${GEMINI_URL}${GEMINI_KEY}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -35,11 +32,12 @@ Return the response strictly in valid JSON using this structure:
 }
 
 Rules:
+- Ensure the summary and key points reflect the main topics from the entire text, not just the beginning
 - If mode = summary → fill only "summary"
 - If mode = bullet → fill only "key_points"
 - If mode = keyInsight → fill all fields
-- key_points should contain 3–6 concise bullet points
-- keywords should contain 3–6 important keywords
+- key_points should contain 4–7 concise bullet points
+- keywords should contain 4–6 important keywords
 - keywords should be single words or short phrases
 - Do not include explanations or markdown
 - Return valid JSON only

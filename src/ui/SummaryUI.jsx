@@ -16,7 +16,7 @@ const SummaryUI = ({ data, handleCopySummary, copied, copyingError }) => {
             <p>{data.summary}</p>
           </div>
         )}
-        {data?.key_points && (
+        {data?.key_points.length !== 0 && (
           <div className="mb-8">
             <h3 className="text-text-primary font-semibold border-b border-gray-500 mb-2">
               Key Points
@@ -30,7 +30,7 @@ const SummaryUI = ({ data, handleCopySummary, copied, copyingError }) => {
             })}
           </div>
         )}
-        {data?.keywords && (
+        {data?.keywords.length !== 0 && (
           <div className="mb-4">
             <h3 className="text-text-primary font-semibold border-b border-gray-500 mb-2">
               Keywords

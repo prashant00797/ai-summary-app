@@ -6,11 +6,14 @@ export const IsLoadingCard = () => {
   );
 };
 
-export const ServiceFailure = () => {
+export const ErrorCard = ({ error }) => {
+  return <div className=" mt-10 card text-red-500">{error}</div>;
+};
+
+export const NoData = () => {
   return (
-    <div className=" mt-10 card text-red-500">
-      Oops! Something went wrong while generating the summary. Please try again
-      later.
+    <div className="card text-red-500">
+      Oops gemini responsed with empty data try again
     </div>
   );
 };

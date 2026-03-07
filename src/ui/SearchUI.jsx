@@ -4,20 +4,24 @@ const SearchUI = ({
   onChange,
   inputDataForSummary,
   isLoading,
+  charCount,
+  wordCount,
 }) => {
   return (
     <div className="flex flex-col">
-      <div id="textarea-wrapper" className="relative">
-        <textarea
-          name="text"
-          id="text"
-          className="textarea h-45 [scrollbar-width:none] pr-15"
-          value={inputDataForSummary.text}
-          maxLength={1000}
-          onChange={(e) => onChange(e)}
-        ></textarea>
-        <div className="absolute bottom-2 right-2  ">
-          <span className="text-text-secondary z-10">{`${inputDataForSummary.text.length}/1000`}</span>
+      <div id="textarea-wrapper" className="mb-5">
+        <div className="relative">
+          <textarea
+            name="text"
+            id="text"
+            className="textarea h-45 [scrollbar-width:none]  "
+            value={inputDataForSummary.text}
+            maxLength={5000}
+            onChange={(e) => onChange(e)}
+          ></textarea>
+          <div className="absolute -bottom-4 right-0">
+            <span className="text-xs md:text-sm text-text-secondary z-10">{`Word count : ${wordCount} | Char count : ${charCount}/5000`}</span>
+          </div>
         </div>
       </div>
 
