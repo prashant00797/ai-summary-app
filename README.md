@@ -1,13 +1,9 @@
 # 🧠 Insight AI — AI Text Summarizer
 
 ![React](https://img.shields.io/badge/React-18-blue)
-
 ![Vite](https://img.shields.io/badge/Vite-Frontend-purple)
-
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-UI-38BDF8)
-
 ![Gemini](https://img.shields.io/badge/AI-Google%20Gemini-orange)
-
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 
 🚀 **Insight AI** is a fast and minimal AI-powered tool that transforms long text into **clear summaries, key insights, or bullet points** using **Google Gemini AI**.
