@@ -1,9 +1,21 @@
+import {
+  copyMessageFailure,
+  copyMessageSuccess,
+  copyToClipboardLabel,
+  keyPointsLabel,
+  keywordLabel,
+  summaryHeaderLabel,
+  summaryLabel,
+} from "../constants/staticData";
+
 const SummaryUI = ({ data, handleCopySummary, copied, copyingError }) => {
   return (
     <div className="card p-0 mt-10">
       {/* header */}
       <div className=" bg-gray-100 px-6 py-4 border-b border-gray-300">
-        <h2 className="text-text-primary font-semibold">Summary results</h2>
+        <h2 className="text-text-primary font-semibold">
+          {summaryHeaderLabel}
+        </h2>
       </div>
 
       {/* body */}
@@ -11,7 +23,7 @@ const SummaryUI = ({ data, handleCopySummary, copied, copyingError }) => {
         {data?.summary && (
           <div className="mb-8">
             <h3 className="text-text-primary font-semibold border-b border-gray-500 mb-2">
-              Summary
+              {summaryLabel}
             </h3>
             <p>{data.summary}</p>
           </div>
@@ -19,7 +31,7 @@ const SummaryUI = ({ data, handleCopySummary, copied, copyingError }) => {
         {data?.key_points.length !== 0 && (
           <div className="mb-8">
             <h3 className="text-text-primary font-semibold border-b border-gray-500 mb-2">
-              Key Points
+              {keyPointsLabel}
             </h3>
             {data.key_points.map((point, idx) => {
               return (
@@ -33,7 +45,7 @@ const SummaryUI = ({ data, handleCopySummary, copied, copyingError }) => {
         {data?.keywords.length !== 0 && (
           <div className="mb-4">
             <h3 className="text-text-primary font-semibold border-b border-gray-500 mb-2">
-              Keywords
+              {keywordLabel}
             </h3>
             <div className="flex items-center flex-wrap">
               {data.keywords.map((keyword, idx) => {
@@ -53,11 +65,11 @@ const SummaryUI = ({ data, handleCopySummary, copied, copyingError }) => {
             className="shadow-card bg-primary
                p-2 lg:cursor-pointer transition  rounded-md hover:text-white  hover:brightness-110 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:border-gray-400 disabled:text-gray-700"
           >
-            📕Copy Summary
+            {copyToClipboardLabel}
           </button>
           {copied && (
             <span className="text-green-500 absolute text-[9px] -bottom-4">
-              {!copyingError ? "✔️ Copied to clipboard" : "❌ Failed to copy"}
+              {!copyingError ? copyMessageSuccess : copyMessageFailure}
             </span>
           )}
         </div>

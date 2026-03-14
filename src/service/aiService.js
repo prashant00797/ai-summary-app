@@ -58,6 +58,7 @@ ${text}`,
   });
   const data = await response.json();
 
+  //since fetch resolves 404 and sends NOT FOUND hence throwing manual error
   if (!response.ok) {
     throw new Error("Gemini API request failed");
   }

@@ -3,6 +3,7 @@ import SummaryUI from "../ui/SummaryUI";
 import { useState } from "react";
 import { IsLoadingCard, ErrorCard, NoData } from "../generic/ErrorBoundary";
 import { geminiRequest } from "../service/aiService";
+import { textResolver } from "../resolver/text";
 
 const SearchLayout = () => {
   //loading and fetching states
@@ -41,12 +42,12 @@ const SearchLayout = () => {
   //fn to submit request to ai and fetch response
   const handleSummaryGeneration = async () => {
     //guard check to keep word count above 100
-    if (inputDataForSummary.text.trim().split(/\s+/).length < 100) {
+    if (textResolver("length", inputDataForSummary.text) < 100) {
       setError("Text too short to summarize. Please enter at least 100 words.");
       return;
     }
+    setIsLoading(true);
     try {
-      setIsLoading(true);
       setError("");
       setReset(false);
 
@@ -82,16 +83,16 @@ const SearchLayout = () => {
   const handleCopySummary = async (e) => {
     e.preventDefault();
     try {
-      let copied = "";
+      let copiedText = "";
       if (inputDataForSummary?.mode === "summary") {
-        copied = `Summary : ${result?.summary}`;
+        copiedText = `Summary : ${result?.summary}`;
       } else if (inputDataForSummary?.mode === "keyInsight") {
-        copied = `Summary: ${result?.summary} ${"\n"}${"\n"} Key Points: ${result?.key_points.map((key, idx) => `${idx + 1}.${key}`).join(" ")} ${"\n"}${"\n"} Keywords: ${result?.keywords.map((key) => key)}`;
+        copiedText = `Summary: ${result?.summary} ${"\n"}${"\n"} Key Points: ${result?.key_points.map((key, idx) => `${idx + 1}.${key}`).join(" ")} ${"\n"}${"\n"} Keywords: ${result?.keywords.map((key) => key)}`;
       } else if (inputDataForSummary?.mode === "bullet") {
-        copied = `KeyPoints: ${result?.key_points.map((key, idx) => `${idx + 1}.${key}`).join(" ")}`;
+        copiedText = `KeyPoints: ${result?.key_points.map((key, idx) => `${idx + 1}.${key}`).join(" ")}`;
       }
 
-      await navigator.clipboard.writeText(copied);
+      await navigator.clipboard.writeText(copiedText);
       setCopied(true);
       setTimeout(() => {
         setCopied(false);
@@ -104,7 +105,7 @@ const SearchLayout = () => {
   //word and character counter variables
   const text = inputDataForSummary.text;
   const charCount = text.length;
-  const wordCount = text.trim() !== "" ? text.split(/\s+/).length : 0;
+  const wordCount = text.trim() !== "" ? textResolver("length", text) : 0;
 
   return (
     <div className="card mt-10">
