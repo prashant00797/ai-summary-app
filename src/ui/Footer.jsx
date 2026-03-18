@@ -17,7 +17,11 @@ const Footer = () => {
       {contactData.headerLabel}
       {contactData.links.map((link) => {
         return (
-          <a href={link.link} className="hover:text-primary-hover">
+          <a
+            href={link.link}
+            target="_blank"
+            className="hover:text-primary-hover"
+          >
             {link.name}
           </a>
         );
