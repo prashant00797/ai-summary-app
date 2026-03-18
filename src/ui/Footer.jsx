@@ -1,9 +1,9 @@
 const Footer = () => {
   const contactData = {
-    headerLabel: "© 2026 Insight AI ·",
+    headerLabel: "© 2026 Insight AI · ",
     links: [
       {
-        name: "Feedback ·",
+        name: "Feedback · ",
         link: "mailto:prashantnath6307@gmail.com",
       },
       {
