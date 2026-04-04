@@ -18,6 +18,7 @@ const Footer = () => {
       {contactData.links.map((link) => {
         return (
           <a
+            key={link.link}
             href={link.link}
             target="_blank"
             className="hover:text-primary-hover"

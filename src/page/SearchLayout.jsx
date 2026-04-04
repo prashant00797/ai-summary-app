@@ -87,7 +87,7 @@ const SearchLayout = () => {
       if (inputDataForSummary?.mode === "summary") {
         copiedText = `Summary : ${result?.summary}`;
       } else if (inputDataForSummary?.mode === "keyInsight") {
-        copiedText = `Summary: ${result?.summary} ${"\n"}${"\n"} Key Points: ${result?.key_points.map((key, idx) => `${idx + 1}.${key}`).join(" ")} ${"\n"}${"\n"} Keywords: ${result?.keywords.map((key) => key)}`;
+        copiedText = `Summary: ${result?.summary} ${"\n"}${"\n"} Key Points: ${result?.key_points.map((key, idx) => `${idx + 1}.${key}`).join(" ")} ${"\n"}${"\n"} Keywords: ${result?.keywords.join(",")}`;
       } else if (inputDataForSummary?.mode === "bullet") {
         copiedText = `KeyPoints: ${result?.key_points.map((key, idx) => `${idx + 1}.${key}`).join(" ")}`;
       }
