@@ -13,7 +13,7 @@ export const ErrorCard = ({ error }) => {
 export const NoData = () => {
   return (
     <div className="card text-red-500">
-      Oops gemini responsed with empty data try again
+      Oops AI responsed with empty data try again
     </div>
   );
 };

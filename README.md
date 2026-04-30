@@ -3,10 +3,10 @@
 ![React](https://img.shields.io/badge/React-18-blue)
 ![Vite](https://img.shields.io/badge/Vite-Frontend-purple)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-UI-38BDF8)
-![Gemini](https://img.shields.io/badge/AI-Google%20Gemini-orange)
+![OpenAI](https://img.shields.io/badge/AI-OpenAI-412991)
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 
-🚀 **Insight AI** is a fast and minimal AI-powered tool that transforms long text into **clear summaries, key insights, or bullet points** using **Google Gemini AI**.
+🚀 **Insight AI** is a fast and minimal AI-powered tool that transforms long text into **clear summaries, key insights, or bullet points** using **Open AI**.
 
 Paste large content and instantly generate structured insights with **adjustable summary styles and lengths**.
 
@@ -15,21 +15,13 @@ Designed as a **clean single-page React application**, the focus is on **simplic
 🌐 **Live Demo**
 [https://insight-ai-summary.netlify.app](https://insight-ai-summary.netlify.app)
 
-## ⚠️ Demo Notice
-
-This project is a frontend portfolio demonstration.  
-The Gemini API key is called directly from the browser (client-side) for simplicity.  
-In a production application, API keys should always be stored server-side  
-(e.g., in a Next.js API route or a backend like FastAPI, Node.js) and never exposed to the client.  
-This architecture was chosen intentionally to focus on frontend AI integration patterns.
-
 ---
 
 # ✨ Key Features
 
 ### 🤖 AI Powered Summarization
 
-Generate intelligent summaries using **Google Gemini AI**.
+Generate intelligent summaries using **Open AI**.
 
 ### 📑 Multiple Summary Modes
 
@@ -104,7 +96,7 @@ Detailed explanation covering **multiple concepts and deeper insights**.
 | ⚛️ React             | UI Library          |
 | ⚡ Vite              | Frontend Build Tool |
 | 🎨 Tailwind CSS      | Styling             |
-| 🤖 Google Gemini API | AI Text Processing  |
+| 🤖 OPEN AI API       | AI Text Processing  |
 | 🟨 JavaScript        | Application Logic   |
 
 ---
@@ -112,17 +104,19 @@ Detailed explanation covering **multiple concepts and deeper insights**.
 # 🏗 Project Architecture
 
 ```
+└──netlify/functions → summarize.js (serveless function)
 src
 │
 ├── assets       → icons & images
 ├── constants    → API URLs, constants, configs
 ├── generic      → reusable components
 ├── page         → container logic (data layer)
-├── service      → Gemini API integration (service layer)
+├── service      → Open AI API integration (service layer)
 ├── ui           → UI components (ui layer)
 ├── utility      → helper functions
 ├── App.jsx
 └── main.jsx
+
 ```
 
 This structure follows a **layered architecture**, separating:
@@ -138,7 +132,7 @@ This structure follows a **layered architecture**, separating:
 
 1️⃣ User pastes long text
 2️⃣ Selects **summary mode** and **length**
-3️⃣ Request is sent to **Google Gemini AI**
+3️⃣ Request is sent via a Netlify serverless function to securely call **OpenAI**
 4️⃣ AI returns **structured JSON output**
 5️⃣ UI parses and renders the summary instantly
 
@@ -188,12 +182,12 @@ Artificial Intelligence, Healthcare AI, Autonomous Vehicles
 
 # 🔑 Environment Setup
 
-Create a `.env.local` file in the project root and add your **Gemini API key**.
+Create a `.env` file in the project root and add your **Open AI API key**.
 
 Example:
 
 ```
-VITE_GEMINI_KEY=your_api_key_here
+OPENAI_API_KEY=your_api_key_here
 ```
 
 ---

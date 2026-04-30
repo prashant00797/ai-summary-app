@@ -2,7 +2,7 @@ import SearchUI from "../ui/SearchUI";
 import SummaryUI from "../ui/SummaryUI";
 import { useState } from "react";
 import { IsLoadingCard, ErrorCard, NoData } from "../generic/ErrorBoundary";
-import { geminiRequest } from "../service/aiService";
+import { openaiRequest } from "../service/aiService";
 import { textResolver } from "../resolver/text";
 
 const SearchLayout = () => {
@@ -52,7 +52,7 @@ const SearchLayout = () => {
       setReset(false);
 
       //Ai call
-      const aiResponse = await geminiRequest(inputDataForSummary);
+      const aiResponse = await openaiRequest(inputDataForSummary);
 
       setResult(aiResponse);
     } catch {
