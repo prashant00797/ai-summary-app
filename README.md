@@ -156,30 +156,6 @@ Artificial Intelligence, Healthcare AI, Autonomous Vehicles
 
 ---
 
-# 📸 Screenshots
-
-## Main Screens
-
-![Web Screen](/screenshots/1.png)
-![Mobile View](/screenshots/5.png)
-
----
-
-## Text Input + Mode Selection
-
-![Web Screen](/screenshots/2.png)
-![Mobile View](/screenshots/6.png)
-
----
-
-## Summary Generation
-
-![Web Screen](/screenshots/4.png)
-![Mobile Viewport](/screenshots/6.png)
-![Mobile Full View](/screenshots/7.png)
-
----
-
 # 🔑 Environment Setup
 
 Create a `.env` file in the project root and add your **Open AI API key**.
