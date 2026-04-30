@@ -212,12 +212,6 @@ This project is built for **learning and portfolio purposes**.
 
 ![Portfolio Project](https://img.shields.io/badge/Portfolio-Project-blue)
 
----
-
-# 👨‍💻 Author
-
-**Prashant Nath**
-Frontend Developer — React | JavaScript | UI Engineering
 
 ---
 
